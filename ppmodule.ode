@@ -1,0 +1,40 @@
+# 2 plants - 1 pollinator module
+# ------------------------------
+#
+# XPPAUT file for the bifurcation analysis with fixed pollinator preferences.
+#
+
+# Parameters
+par r1=0.1
+par r2=0.1
+par e1=0.2
+par e2=0.1
+par m1=0.01
+par m2=0.01
+par d=0.1
+par c=0.4
+par K=50
+par a1=0.4
+par a2=0.4
+par b1=0.1
+par b2=0.1
+par w1=0.25
+par w2=0.25
+par u=0.5
+
+# Initial values
+init P1=25
+init P2=25
+init N=25
+
+# Settings
+@ dt=0.001 bound=10000 total=1000
+@ yp1=P1 yp2=P2 yp3=N
+@ ylo=0 yhi=100 xhi=1000 nout=2000 nplot=3
+
+# Equations
+dP1/dt= ( r1*a1 * u * b1*N*(1 - (P1+c*P2)/K)/(w1+  u * b1*N) -m1)*P1
+dP2/dt= ( r2*a2*(1-u)*b2*N*(1 - (P2+c*P1)/K)/(w2+(1-u)*b2*N) -m2)*P2
+dN/dt= ( e1*a1*u*b1*P1/(w1+u*b1*N) + e2*a2*(1-u)*b2*P2/(w2+(1-u)*b2*N) -d)*N
+
+done
