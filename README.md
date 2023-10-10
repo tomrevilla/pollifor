@@ -1,4 +1,4 @@
-Pollinator foraging adaptation the coexistence of competing plants
+Pollinator foraging adaptation and coexistence of competing plants
 ==================================================================
 
 This folder contains the code used for the figures and simulations.
